@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %}</title>
+
+        <!-- Bootstrap -->
+        <link href="{{ asset('bundles/blogapp/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/blogapp/css/blog.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/blogapp/css/footer.css') }}" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        {% block style %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+         <!-- Static navbar -->
+            {% trans_default_domain 'FOSUserBundle' %}
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('blog_app_homepage') }}">The Blog</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('article') }}">Tous Les Articles</a></li> 
+                        {% if is_granted("ROLE_USER") %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('categorie') }}">Gestion des Categories</a></li>
+                                <li><a href="{{ path('article_new') }}">Ajouter un Article</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('blog_app_my') }}">Mes Contributions</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{ path('fos_user_profile_edit') }}">Modifier mon profile</a></li>
+                                <li><a href="{{ path('fos_user_change_password') }}">Modifier mon mot de passe</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="{{ path('fos_user_profile_show') }}">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+                </div>
+            </div>
+
+            {% block header %}
+            {% endblock %}
+            <div class="container">
+                <div class="row">
+                    {% block content %}
+                        <div class="col-xs-12 col-md-8">
+                            {% block center_content %}
+                            {% endblock %}
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            {% block aside %}
+                                {% render(controller('BlogAppBundle:Default:aside')) %}
+                            {% endblock %}
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+            
+            {% block footer %}
+                <div id="footer">
+                    <div class="container">
+                        <p class="text-muted">Place sticky footer content here.</p>
+                    </div>
+                </div>
+            {% endblock %}
+        {% endblock %}
+
+
+
+        <!-- JQuerry -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="{{ asset('bundles/blogapp/js/bootstrap.min.js') }}"></script>
+        {% block javascript %}
+        {% endblock %}
+    </body>
+</html>

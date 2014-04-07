@@ -1,0 +1,27 @@
+{% extends "BlogUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block style %}
+    <link href="{{ asset('bundles/bloguser/css/login.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div>{{ error|trans }}</div>
+{% endif %}
+
+<form class="form-signin" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <input type="text" id="username" name="_username" class="form-control"  value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}" required autofocus>
+    <input type="password" id="password" name="_password" class="form-control" placeholder="{{ 'security.login.password'|trans }}" required>
+
+    <label class="checkbox">
+          <input id="remember_me" name="_remember_me" type="checkbox" value="on">{{ 'security.login.remember_me'|trans }}
+    </label>
+    <button id="_submit" name="_submit" class="btn btn-lg btn-primary btn-block" type="submit">{{ 'security.login.submit'|trans }}</button>
+</form>
+
+{% endblock fos_user_content %}

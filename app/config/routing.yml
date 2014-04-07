@@ -1,0 +1,11 @@
+blog_app:
+    resource: "@BlogAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog_component:
+    resource: "@BlogComponentBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog_user:
+    resource: "@BlogUserBundle/Resources/config/routing.yml"
+    prefix:   /

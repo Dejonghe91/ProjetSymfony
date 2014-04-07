@@ -1,0 +1,7 @@
+blog_app_homepage:
+    pattern:  /
+    defaults: { _controller: BlogAppBundle:Default:index }
+
+blog_app_my:
+    pattern:  /my
+    defaults: { _controller: BlogAppBundle:Default:myArticle }

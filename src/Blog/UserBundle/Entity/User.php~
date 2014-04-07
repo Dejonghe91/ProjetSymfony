@@ -1,0 +1,32 @@
+<?php
+// src/Blog/UserBundle/Entity/User.php
+
+namespace Blog\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table()
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Blog\ComponentBundle\Entity\Article", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $articles;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+}

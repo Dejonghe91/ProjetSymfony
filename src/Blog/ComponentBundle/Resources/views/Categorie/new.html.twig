@@ -1,0 +1,12 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% block center_content %}
+    <h1>Categorie creation</h1>
+    <form action="{{ path('categorie_create') }}" method="POST"> 
+        {{ form_widget(form) }}
+        {{ form_rest(form) }}
+        <br/>
+        <button class="btn btn-sm btn-primary btn-block" type="submit">Submit</button>
+    </form>
+    <p><a href="{{ path('categorie') }}" class="btn btn-primary btn-sm" role="button">Retour</a></p>
+{% endblock %}

@@ -1,0 +1,6 @@
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Blog\ComponentBundle\Entity\Comment
+            thread: Blog\ComponentBundle\Entity\Thread

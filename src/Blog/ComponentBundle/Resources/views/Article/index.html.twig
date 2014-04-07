@@ -1,0 +1,21 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% block center_content %}
+    <div class="blog-header">
+        <h1 class="blog-title">The Blog</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+    </div>
+
+    {% for entity in entities %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"><a href="{{ path('article_show', { 'urlAlias': entity.urlAlias }) }}">{{ entity.titre }}</a></h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#"> {{ entity.user.username }} </a></p>
+
+            <p>{{ entity.content }}</p>
+            {% if is_granted("ROLE_USER") %}
+                <p><a href="{{ path('article_edit', { 'urlAlias': entity.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Edit</a></p>
+            {% endif %}
+        </div>    
+        <hr> 
+    {% endfor %}
+{% endblock %}

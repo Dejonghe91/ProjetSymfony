@@ -1,0 +1,41 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% block header %}
+    <div class="jumbotron">
+        <h1>Categorie {{ entity.name }}</h1>
+    </div>
+{% endblock %}
+
+{% block center_content %}
+    {% if is_granted("ROLE_USER") %}
+        <div class="blog-post">
+            <h2 class="blog-post-title">Action sur la categorie {{ entity.name }}</h2>
+
+            <br/>
+            <p><a href="{{ path('categorie') }}" class="btn btn-primary btn-sm" role="button">Retour</a>
+            <a href="{{ path('categorie_edit', { 'name': entity.name }) }}" class="btn btn-primary btn-sm" role="button">Modifier</a>
+            <a href="{{ path('categorie_delete', { 'name': entity.name }) }}" class="btn btn-primary btn-sm" role="button">Supprimer</a></p>
+        </div>
+    {% endif %}
+
+    <div class="blog-post">
+        <h3 class="blog-post-title">Article dans {{ entity.name }} :</h3>
+    </div>
+
+    {% for article in entity.articles %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"><a href="{{ path('article_show', { 'urlAlias': article.urlAlias }) }}">{{ article.titre }}</a></h2>
+            <p class="blog-post-meta">December 23, 2013 by <a href="#">{{ article.user.username }}</a></p>
+
+            <p>{{ article.content }}</p>
+            {% if is_granted("ROLE_USER") %}
+                <p><a href="{{ path('article_edit', { 'urlAlias': article.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Edit</a>
+                <a href="{{ path('article_delete', { 'urlAlias': article.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Supprimer</a></p>
+            {% endif %}
+        </div>
+        <hr>
+    {% else %}
+        <p>Aucun Article dans cette section</p> 
+        <p><a href="{{ path('article_new') }}" class="btn btn-primary btn-sm" role="button">Ajouter un Article</a></p>
+    {% endfor %}
+{% endblock %}

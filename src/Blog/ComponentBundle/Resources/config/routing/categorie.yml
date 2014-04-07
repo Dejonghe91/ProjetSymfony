@@ -1,0 +1,30 @@
+categorie:
+    pattern:  /
+    defaults: { _controller: "BlogComponentBundle:Categorie:index" }
+
+categorie_show:
+    pattern:  /{name}/show
+    defaults: { _controller: "BlogComponentBundle:Categorie:show" }
+
+categorie_new:
+    pattern:  /new
+    defaults: { _controller: "BlogComponentBundle:Categorie:new" }
+
+categorie_create:
+    pattern:  /create
+    defaults: { _controller: "BlogComponentBundle:Categorie:create" }
+    requirements: { _method: post }
+
+categorie_edit:
+    pattern:  /{name}/edit
+    defaults: { _controller: "BlogComponentBundle:Categorie:edit" }
+
+categorie_update:
+    pattern:  /{name}/update
+    defaults: { _controller: "BlogComponentBundle:Categorie:update" }
+    requirements: { _method: post|put }
+
+categorie_delete:
+    pattern:  /{name}/delete
+    defaults: { _controller: "BlogComponentBundle:Categorie:delete" }
+    requirements: { _method: post|delete|get }

@@ -1,0 +1,9 @@
+Blog\ComponentBundle\Entity\Comment:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        body:
+            expose: true
+        createdAt:
+            expose: true

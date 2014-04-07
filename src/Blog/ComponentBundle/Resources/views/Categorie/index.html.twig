@@ -1,0 +1,30 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% block center_content %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">Les Categories</h2>
+        <hr>
+        <p><a href="{{ path('categorie_new') }}" class="btn btn-primary btn-sm" role="button">Ajouter une categorie</a></p>
+    </div>
+    
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.name }} </td>
+                <td>
+                    <p><a href="{{ path('categorie_show', { 'name': entity.name }) }}" class="btn btn-primary btn-sm" role="button">Voir</a>
+                    <a href="{{ path('categorie_edit', { 'name': entity.name }) }}" class="btn btn-primary btn-sm" role="button">Modifier</a></p>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}

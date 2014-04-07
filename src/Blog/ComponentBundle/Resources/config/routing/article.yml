@@ -1,0 +1,30 @@
+article:
+    pattern:  /
+    defaults: { _controller: "BlogComponentBundle:Article:index" }
+
+article_show:
+    pattern:  /{urlAlias}/show
+    defaults: { _controller: "BlogComponentBundle:Article:show" }
+
+article_new:
+    pattern:  /new
+    defaults: { _controller: "BlogComponentBundle:Article:new" }
+
+article_create:
+    pattern:  /create
+    defaults: { _controller: "BlogComponentBundle:Article:create" }
+    requirements: { _method: post }
+
+article_edit:
+    pattern:  /{urlAlias}/edit
+    defaults: { _controller: "BlogComponentBundle:Article:edit" }
+
+article_update:
+    pattern:  /{urlAlias}/update
+    defaults: { _controller: "BlogComponentBundle:Article:update" }
+    requirements: { _method: post|put }
+
+article_delete:
+    pattern:  /{urlAlias}/delete
+    defaults: { _controller: "BlogComponentBundle:Article:delete" }
+    requirements: { _method: post|delete|get }

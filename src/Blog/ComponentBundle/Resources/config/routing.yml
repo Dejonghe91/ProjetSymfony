@@ -1,0 +1,14 @@
+BlogComponentBundle_article:
+    resource: "@BlogComponentBundle/Resources/config/routing/article.yml"
+    prefix:   /article
+
+BlogComponentBundle_categorie:
+    resource: "@BlogComponentBundle/Resources/config/routing/categorie.yml"
+    prefix:   /categorie
+
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+

@@ -1,0 +1,13 @@
+Blog\ComponentBundle\Entity\Article:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        titre:
+            expose: true
+        content:
+            expose: true
+        urlAlias:
+            expose: true
+        dateModif:
+            expose: true

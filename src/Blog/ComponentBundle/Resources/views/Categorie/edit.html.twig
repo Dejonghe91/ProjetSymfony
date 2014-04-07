@@ -1,0 +1,16 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% block center_content %}
+    <h1>Categorie edit</h1>
+    
+    <form action="{{ path('categorie_update', {'name' : entity.name}) }}" method="POST"> 
+        {{ form_widget(edit_form) }}
+        {{ form_rest(edit_form) }}
+        <br/>
+        <button class="btn btn-sm btn-primary btn-block" type="submit">Submit</button>
+    </form>
+
+    <p><a href="{{ path('categorie') }}" class="btn btn-primary btn-sm" role="button">Retour</a></p>
+    <p><a href="{{ path('categorie_delete', {'name': entity.name}) }}" class="btn btn-primary btn-sm" role="button">Supprimer</a></p>
+
+{% endblock %}

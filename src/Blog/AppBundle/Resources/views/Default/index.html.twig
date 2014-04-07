@@ -1,0 +1,33 @@
+{% extends 'BlogAppBundle::layout.html.twig' %}
+
+{% block header %}
+    <div class="jumbotron">
+        <h1>The Blog</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            Phasellus rhoncus quam lectus, eget accumsan mauris feugiat sit amet. 
+            Nullam scelerisque nec magna vitae cursus. Suspendisse fermentum tempor blandit.
+            Donec convallis vel augue sollicitudin cursus. Mauris id pretium nunc, eu cursus lectus. 
+        </p>
+        
+    </div>
+{% endblock %}
+
+
+{% block center_content %}
+    {% for entity in articles %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"><a href="{{ path('article_show', { 'urlAlias': entity.urlAlias }) }}">{{ entity.titre }}</a></h2>
+            <p class="blog-post-meta">Ecris le {{ entity.dateModif | date('d/m/Y') }} par <a href="#">{{ entity.user.username }}</a></p>
+
+            <p>{{ entity.content }}</p>
+        </div>
+        <hr>
+    {% else %}
+        <p>Auncun Articles ...</p>
+        {% if is_granted("ROLE_USER") %}
+            <p>Ajoutez votre premiere contribution <a class="btn btn-sm btn-primary" href="{{ path('article_new') }}">Ajouter un Article</a></p>
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

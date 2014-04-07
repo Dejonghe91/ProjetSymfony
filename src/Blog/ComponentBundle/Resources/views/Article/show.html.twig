@@ -1,0 +1,25 @@
+{% extends 'BlogComponentBundle::layout.html.twig' %}
+
+{% trans_default_domain 'FOSCommentBundle' %}
+
+{% block style %}
+    {% stylesheets '@FOSCommentBundle/Resources/assets/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block center_content %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ entity.titre }}</h2>
+        <p class="blog-post-meta">ecris le {{ entity.dateModif | date('d/m/Y') }} par <a href="#"> {{ entity.user.username }} </a></p>
+
+        <p>{{ entity.content }}</p>
+
+        {% if is_granted("ROLE_USER") %}
+            <p><a href="{{ path('article_edit', { 'urlAlias': entity.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Edit</a></p>
+            <p><a href="{{ path('article_delete', { 'urlAlias': entity.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Supprimer</a></p>
+        {% endif %}
+        <p><a href="{{ path('article') }}" class="btn btn-primary btn-sm" role="button">Retour</a></p>
+    </div>
+    {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': entity.thread.id } %}
+{% endblock %}

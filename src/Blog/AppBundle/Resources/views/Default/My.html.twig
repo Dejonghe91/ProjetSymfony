@@ -1,0 +1,22 @@
+{% extends 'BlogAppBundle::layout.html.twig' %}
+
+
+{% block title %}
+Mes Contributions
+{% endblock %}
+
+{% block center_content %}
+    {% for article in articles %}
+        <div class="blog-post">
+            <h2 class="blog-post-title"><a <a href="{{ path('article_show', { 'urlAlias': article.urlAlias }) }}">{{ article.titre }}</a></h2>
+            <p class="blog-post-meta">ecris le {{ article.dateModif | date('d/m/Y') }} par <a href="#"> {{ article.user.username }} </a></p>
+
+            <p>{{ article.content }}</p>
+
+            <p><a href="{{ path('article_edit', { 'urlAlias': article.urlAlias }) }}" class="btn btn-primary btn-sm" role="button">Edit</a></p>
+        </div>
+        <hr>
+    {% else %}
+        <p>Vous n'avez aucunes contributions au blog : link to</p>
+    {% endfor%}
+{% endblock %}

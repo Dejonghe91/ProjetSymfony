@@ -3,9 +3,7 @@ ProjetSymfony
 
 Auteur : Edouard Dejonghe
 
-Projet Symfony pour la metiere E-Application du Master AIGLE
-le cache et les logs ont ete supprimés. Le cache doctrine a également été vidé
-le repertoire bundles a été effacé, reconstruire avec assets:install
+Projet Symfony pour la metiere E-Application du Master AIGLE. Tous les caches ont été purgés, les logs supprimés.
 =============
 
 ## Composition:

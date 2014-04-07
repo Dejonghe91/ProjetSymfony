@@ -1,0 +1,37 @@
+form {
+ background-color:#FAFAFA;
+ padding:10px;
+ width:100%;
+ }
+label {
+ margin-top:10px;
+ display:block;
+ }
+label.inline {
+ display:inline;
+ margin-right:50px;
+ }
+input, textarea, select, option {
+ background-color: #c5d9f5;
+ }
+input, textarea, select {
+ padding:3px;
+ border:1px solid #9cc6cc;
+ border-radius:5px;
+ width:80%;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+
+textarea{
+    height: 110px;
+}
+select {
+ margin-top:10px;
+ }
+
+input[type=submit], input[type=reset] {
+ width:100px;
+ margin-left:5px;
+ box-shadow:1px 1px 1px #D83F3D;
+ cursor:pointer;
+ }

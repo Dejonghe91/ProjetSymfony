@@ -22,6 +22,5 @@ Le CSS est un boostrap
 2. php app/console doctrine:database:create
 3. (- utiliser le script de peuplement SQL) optionel
 4. php app/console doctrine:schema:update --force
-5. php app/console assets:install
-6. cree un utilisateur (fos:user:create | partie inscription)
-	si script de peuplement, user: 'admin' passwd: 'admin'
+5. cree un utilisateur (fos:user:create | partie inscription)
+	si script de peuplement a été utilisé : login: 'admin' password: 'admin'

@@ -13,8 +13,7 @@ Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches o
 
 >AppBundle -> Point d'entrée de l'application
 
-Les bundles FOSUserBundle et FOSCommentBundle ont été utilisé dans ce projet
-Le CSS est un boostrap	
+Les bundles FOSUserBundle et FOSCommentBundle ont été utilisé dans ce projet, le CSS est un boostrap	
 
 ## Procédure d'installation
 		

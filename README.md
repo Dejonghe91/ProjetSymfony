@@ -8,7 +8,9 @@ Projet Symfony pour la metiere E-Application du Master AIGLE. Tous les caches on
 
 ## Composition:
 >UserBundle -> Gestion des Utilisateurs
+
 >ComponentBundle -> Gestion du blog en lui meme
+
 >AppBundle -> Point d'entrée de l'application
 
 Les bundles FOSUserBundle et FOSCommentBundle ont été utilisé dans ce projet

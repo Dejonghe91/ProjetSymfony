@@ -3,7 +3,7 @@ ProjetSymfony
 
 Auteur : Edouard Dejonghe
 
-Projet Symfony pour la metiere E-Application du Master AIGLE. Tous les caches ont été purgés, les logs supprimés.
+Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches ont été purgés, les logs supprimés.
 
 
 ## Composition:

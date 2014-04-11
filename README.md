@@ -1,7 +1,7 @@
 ProjetSymfony
 =============
 
-Auteur : Edouard Dejonghe
+Auteur : Edouard Dejonghe, Anthime Cottin
 
 Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches ont été purgés, les logs supprimés.
 
@@ -13,7 +13,8 @@ Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches o
 
 >AppBundle -> Point d'entrée de l'application
 
-Les bundles FOSUserBundle et FOSCommentBundle ont été utilisé dans ce projet, le CSS est un boostrap	
+Les bundles FOSUserBundle et FOSCommentBundle ont été utilisés dans ce projet, le CSS est un boostrap	
+
 
 ## Procédure d'installation
 		
@@ -21,5 +22,5 @@ Les bundles FOSUserBundle et FOSCommentBundle ont été utilisé dans ce projet,
 2. php app/console doctrine:database:create
 3. (- utiliser le script de peuplement SQL) optionel
 4. php app/console doctrine:schema:update --force
-5. cree un utilisateur (fos:user:create | partie inscription)
-	si script de peuplement a été utilisé : login: 'admin' password: 'admin'
+5. cree un utilisateur (fos:user:create | partie inscription via navigateur )
+    * si le script de peuplement à été utilisé : login: 'admin' password: 'admin'

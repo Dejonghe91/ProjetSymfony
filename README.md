@@ -11,9 +11,9 @@ Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches o
 ## Composition:
 >UserBundle -> Gestion des Utilisateurs
 
->ComponentBundle -> Gestion du blog en lui meme  
-    * CRUD sur les categories d'articles
-    * CRUD sur les articles
+>ComponentBundle -> Gestion du blog en lui meme    
+* CRUD sur les categories d'articles
+* CRUD sur les articles
 
 >AppBundle -> Point d'entrée de l'application
 

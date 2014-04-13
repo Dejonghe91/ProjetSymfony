@@ -1,7 +1,9 @@
 ProjetSymfony
 =============
 
-Auteur : Edouard Dejonghe, Anthime Cottin
+Auteur :   
+* Edouard Dejonghe, dejonghe91@gmail.com 
+* Anthime Cottin, anthime.cottin@gmail.com
 
 Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches ont été purgés, les logs supprimés.
 
@@ -9,11 +11,14 @@ Projet Symfony pour la metière E-Application du Master AIGLE. Tous les caches o
 ## Composition:
 >UserBundle -> Gestion des Utilisateurs
 
->ComponentBundle -> Gestion du blog en lui meme
+>ComponentBundle -> Gestion du blog en lui meme  
+    * CRUD sur les categories d'articles
+    * CRUD sur les articles
 
 >AppBundle -> Point d'entrée de l'application
 
-Les bundles FOSUserBundle et FOSCommentBundle ont été utilisés dans ce projet, le CSS est un boostrap	
+Les bundles FOSUserBundle et FOSCommentBundle ont été utilisés dans ce projet, le CSS est un boostrap  
+Seule les utilisateurs authentifiés peuvent alimenter le blog en articles et catégories, les utilisateurs non authentifiés peuvent accédés aux ressources en lecture seulement. Les utilisateur ont aussi accés a une page contenant toutes leurs publications
 
 
 ## Procédure d'installation
